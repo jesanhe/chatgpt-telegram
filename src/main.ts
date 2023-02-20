@@ -1,8 +1,11 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { NestGram } from 'nestgram';
+import { AppModule } from './app.module.js';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  const bot = new NestGram(
+    '6265965628:AAHzDVjYqcvc_wf8Ea9jSHAsVe8JSTNE0ac',
+    AppModule,
+  );
+  await bot.start();
 }
 bootstrap();
